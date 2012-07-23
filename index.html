@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+	<head>
+		<!-- prerequisites -->
+		<link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
+		
+		<style type="text/css">
+		/* structure the page */
+		body {
+			background-color: #eef;
+		}
+		#clock {
+			height:300px;
+			width:300px;
+			border:1px solid black;
+			border-radius: 200px;
+		}
+		#dates {
+			height:100%;
+			width:100%;
+			border-radius: 200px;
+			position: relative;
+			background-color: #fef; /*purple*/
+			-webkit-mask-box-image: -webkit-radial-gradient(50% 100%, white, transparent 25%, white 20%);
+		}
+
+		#backdrop {
+			position: absolute;
+			height:300px;
+			width:300px;
+			border-radius: 200px;
+			top:9px;
+			background-color: #eff; /*light blue*/
+
+		}
+		</style>
+		<link rel="stylesheet" type="text/css" href="DayOfMonthWheel.css">
+
+		<style type="text/css">
+			/* let's animate the wheel */
+			@-webkit-keyframes rotateDates {
+				0% {
+					-webkit-transform:rotate(0deg);
+				}
+				100% {
+					-webkit-transform:rotate(-360deg);
+				}
+			}
+
+			#dates {
+				-webkit-animation: rotateDates 600s infinite;
+				-webkit-animation-timing-function:linear;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="clock">
+			<div id="backdrop"></div>
+			<div id="dates">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+				<div>7</div>
+				<div>8</div>
+				<div>9</div>
+				<div>10</div>
+				<div>11</div>
+				<div>12</div>
+				<div>13</div>
+				<div>14</div>
+				<div>15</div>
+				<div>16</div>
+				<div>17</div>
+				<div>18</div>
+				<div>19</div>
+				<div>20</div>
+				<div>21</div>
+				<div>22</div>
+				<div>23</div>
+				<div>24</div>
+				<div>25</div>
+				<div>26</div>
+				<div>27</div>
+				<div>28</div>
+				<div>29</div>
+				<div>30</div>
+				<div>31</div>
+			</div>
+		</div>
+
+
+
+		<script type="text/javascript">
+
+			// to generate, run generateDayCSS(31)
+			var generateDayCSS = function(numDays) {
+				var s = '';
+				for(var i=0; i<numDays; i++) {
+					s += '#dates > div:nth-child(' + (i+1) + ') {' + "\n" +
+						'-webkit-transform:rotate(' + (360/numDays*i) + 'deg);' + "\n" +
+						'}' + "\n";
+				}
+				console.log(s);
+			};
+
+
+			
+		</script>
+	</body>
+</html>
